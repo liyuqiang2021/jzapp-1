@@ -1,7 +1,8 @@
 <template>
   <div>
-    记一笔
-    <Nav />
+    <layout>
+      <p>记一笔</p>
+    </layout>
   </div>
 </template>
 
@@ -10,6 +11,3 @@ export default {
   name: "Money",
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

@@ -1,7 +1,8 @@
 <template>
   <div>
-    标签
-    <Nav />
+    <layout>
+      <p>标签</p>
+    </layout>
   </div>
 </template>
 
@@ -10,5 +11,3 @@ export default {
   name: "Labels",
 };
 </script>
-<style lang="scss" scoped>
-</style>

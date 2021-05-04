@@ -1,8 +1,8 @@
 <template>
   <div class="nav">
-    <router-link to="/money">记一笔</router-link>
+    <router-link to="/labels">标签</router-link>
     |
-    <router-link to="/labels">标签页</router-link>
+    <router-link to="/money">记一笔</router-link>
     |
     <router-link to="/statistics">统计</router-link>
   </div>

@@ -1,5 +1,8 @@
 <template>
-  <div>记一笔</div>
+  <div>
+    记一笔
+    <Nav />
+  </div>
 </template>
 
 <script lang="ts">

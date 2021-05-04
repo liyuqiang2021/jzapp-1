@@ -1,5 +1,8 @@
 <template>
-  <div>主页</div>
+  <div>
+    主页
+    <Nav />
+  </div>
 </template>
 
 <script lang="ts">

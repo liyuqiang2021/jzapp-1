@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <hr />
+  <div class="nav">
     <router-link to="/money">记一笔</router-link>
     |
     <router-link to="/labels">标签页</router-link>
@@ -17,5 +16,8 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.nav {
+  border: 1px solid red;
+}
 </style>

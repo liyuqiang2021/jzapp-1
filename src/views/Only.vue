@@ -1,6 +1,6 @@
 <template>
-  <div>
-    主页
+  <div class="nav-wrapper">
+    <div class="content">主页</div>
     <Nav />
   </div>
 </template>
@@ -11,5 +11,16 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.nav-wrapper {
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.content {
+  border: 1px solid blue;
+  overflow: auto;
+  flex-grow: 1;
+}
 </style>

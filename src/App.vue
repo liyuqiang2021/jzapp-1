@@ -1,10 +1,15 @@
+import router from './router/index';
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <router-view />
+    <hr />
+    <div>
+      <router-link to="/money">记一笔</router-link>
+      |
+      <router-link to="/labels">标签页</router-link>
+      |
+      <router-link to="/statistics">统计</router-link>
     </div>
-    <router-view/>
   </div>
 </template>
 
@@ -21,7 +26,7 @@
   padding: 30px;
 
   a {
-    font-weight: bold;
+    // font-weight: bold;
     color: #2c3e50;
 
     &.router-link-exact-active {

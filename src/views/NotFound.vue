@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <div>404：当前路径不存在，请检查</div>
+    <div>
+      <router-link to="/">返回首页</router-link>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+export default {};
+</script>
+
+<style lang="scss" scoped>
+</style>

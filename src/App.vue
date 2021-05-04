@@ -1,7 +1,6 @@
 import router from './router/index';
 <template>
   <div id="app">
-   
     <router-view />
   </div>
 </template>

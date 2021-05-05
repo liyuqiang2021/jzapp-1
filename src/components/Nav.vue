@@ -1,23 +1,45 @@
 <template>
   <div class="nav">
-    <router-link to="/labels">标签</router-link>
+    <router-link to="/labels">
+      <svg>
+        <use xlink:href="#label" />
+      </svg>
+      标签
+    </router-link>
     |
-    <router-link to="/money">记一笔</router-link>
+    <router-link to="/money">
+      <svg>
+        <use xlink:href="#money" />
+      </svg>
+      记一笔</router-link
+    >
     |
-    <router-link to="/statistics">统计</router-link>
+    <router-link to="/statistics">
+      <svg>
+        <use xlink:href="#statistics" />
+      </svg>
+      统计</router-link
+    >
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import x from "@/assets/icons/label.svg";
+import y from "@/assets/icons/money.svg";
+import z from "@/assets/icons/statistics.svg";
+console.log(x, y, z);
 
-export default Vue.extend({
+export default {
   name: "Nav",
-});
+};
 </script>
 
 <style lang="scss" scoped>
 .nav {
   border: 1px solid red;
+}
+.svg {
+  display: flex;
+  flex-direction: row;
 }
 </style>

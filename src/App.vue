@@ -12,7 +12,7 @@
 }
 a {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 body {
   line-height: 1.5;
@@ -22,6 +22,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
+  color: #2c3e50;
 }
 </style>

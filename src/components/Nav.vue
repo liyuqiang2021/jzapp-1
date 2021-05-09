@@ -28,6 +28,8 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  border-top: 5px solid #f9f9f9;
+  background: #f9f9f9;
   .item {
     width: 33.33%;
     display: flex;

@@ -10,23 +10,19 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Types",
-  data() {
-    return {
-      type: "-", //+是收入，-是支出
-    };
-  },
-  methods: {
-    selectType(type) {
-      if (type !== "-" && type !== "+") {
-        throw new Error("type is unknown");
-      }
-      this.type = type;
-    },
-  },
-};
+<script lang="ts">
+import Vue from "vue";
+import { Component } from "vue-property-decorator";
+@Component
+export default class Types extends Vue {
+  type = "-"; //+是收入，-是支出
+  selectType(type: string) {
+    if (type !== "-" && type !== "+") {
+      throw new Error("type is unknown");
+    }
+    this.type = type;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -65,13 +61,13 @@ export default {
     }
   }
   .out {
-    border: 1px solid pink;
+    // border: 1px solid pink;
     position: absolute;
     top: 65px;
     background: white;
     z-index: 5;
     > .output {
-      border: 1px solid blue;
+      // border: 1px solid blue;
       margin: 5px;
       width: 90vw;
       margin-left: 5vw;

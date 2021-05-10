@@ -1,23 +1,26 @@
 <template>
   <div class="numberPad">
+    <div class="out">
+      <div class="output">{{ output }}</div>
+    </div>
     <div class="btns">
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>+</button>
-      <button>删除</button>
-      <button>4</button>
-      <button>5</button>
-      <button>6</button>
-      <button>-</button>
-      <button>清空</button>
-      <button>7</button>
-      <button>8</button>
-      <button>9</button>
-      <button>*</button>
-      <button class="ok">OK</button>
-      <button>.</button>
-      <button>0</button>
+      <button @click="inputContent">1</button>
+      <button @click="inputContent">2</button>
+      <button @click="inputContent">3</button>
+      <button @click="add">+</button>
+      <button @click="remove">删除</button>
+      <button @click="inputContent">4</button>
+      <button @click="inputContent">5</button>
+      <button @click="inputContent">6</button>
+      <button @click="delate">-</button>
+      <button @click="clear">清空</button>
+      <button @click="inputContent">7</button>
+      <button @click="inputContent">8</button>
+      <button @click="inputContent">9</button>
+      <button @click="inputContent">*</button>
+      <button @click="ok" class="ok">OK</button>
+      <button @click="inputContent">.</button>
+      <button @click="inputContent">0</button>
       <button>%</button>
       <button>/</button>
     </div>
@@ -25,14 +28,70 @@
 </template>
 
 <script lang="ts">
-export default {
-  name: "NumberPad",
-};
+import Vue from "vue";
+import { Component, Prop } from "vue-property-decorator";
+
+@Component
+export default class NumberPad extends Vue {
+  output = "";
+  inputContent(event: MouseEvent) {
+    const button = event.target as HTMLButtonElement;
+    const input = button.textContent!;
+    if (this.output.length === 12) {
+      return;
+    }
+    if (this.output === "0") {
+      if ("0123456789".indexOf(input) >= 0) {
+        this.output = input;
+      } else {
+        this.output += input;
+      }
+      return;
+    }
+    if (this.output.indexOf(".") >= 0 && input === ".") {
+      return;
+    }
+    this.output += input;
+  }
+  // add() {}
+  remove() {
+    if (this.output.length === 1) {
+      this.output = "0";
+    } else {
+      this.output = this.output.slice(0, -1);
+    }
+  }
+  // delate() {}
+  clear() {
+    this.output = "0";
+  }
+  // ok() {}
+}
 </script>
 
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
 .numberPad {
+  .out {
+    // border: 1px solid pink;
+    position: absolute;
+    top: 65px;
+    background: white;
+    z-index: 5;
+    > .output {
+      // border: 1px solid blue;
+      overflow: auto;
+      margin: 5px;
+      width: 90vw;
+      min-height: 72px;
+      margin-left: 5vw;
+      margin-right: 5vw;
+      flex-flow: wrap;
+      font-size: 40px;
+      color: green;
+      border-bottom: 4px solid green;
+    }
+  }
   .btns {
     > button {
       @extend %clearFix;

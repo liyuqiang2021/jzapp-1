@@ -4,9 +4,6 @@
       <li :class="type === '-' && 'selected'" @click="selectType('-')">支出</li>
       <li :class="type === '+' && 'selected'" @click="selectType('+')">收入</li>
     </ul>
-    <div class="out">
-      <div class="output">0.00</div>
-    </div>
   </div>
 </template>
 
@@ -58,24 +55,6 @@ export default class Types extends Vue {
           background: #000;
         }
       }
-    }
-  }
-  .out {
-    // border: 1px solid pink;
-    position: absolute;
-    top: 65px;
-    background: white;
-    z-index: 5;
-    > .output {
-      // border: 1px solid blue;
-      margin: 5px;
-      width: 90vw;
-      margin-left: 5vw;
-      margin-right: 5vw;
-      flex-flow: wrap;
-      font-size: 40px;
-      color: green;
-      border-bottom: 4px solid green;
     }
   }
 }

@@ -29,7 +29,7 @@ export default {
 <style lang="scss" scoped>
 .tags {
   overflow: auto;
-  border: 2px solid blue;
+  // border: 2px solid blue;
   font-size: 14px;
   background: #f5f5f5;
 

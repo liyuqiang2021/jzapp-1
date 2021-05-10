@@ -1,8 +1,8 @@
 <template>
   <div class="heads">
     <ul class="types">
-      <li class="selected">支出</li>
-      <li class="selected">收入</li>
+      <li :class="type === '-' && 'selected'" @click="selectType('-')">支出</li>
+      <li :class="type === '+' && 'selected'" @click="selectType('+')">收入</li>
     </ul>
     <div class="out">
       <div class="output">0.00</div>
@@ -13,27 +13,42 @@
 <script>
 export default {
   name: "Types",
+  data() {
+    return {
+      type: "-", //+是收入，-是支出
+    };
+  },
+  methods: {
+    selectType(type) {
+      if (type !== "-" && type !== "+") {
+        throw new Error("type is unknown");
+      }
+      this.type = type;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .heads {
+  margin: 0;
+  padding: 0;
   .types {
     display: flex;
     position: absolute;
     top: 0;
-    width: 100vw;
+    margin-left: 20vw;
     background: white;
+    justify-content: center;
     z-index: 9;
     > li {
       display: flex;
-      flex-grow: 1;
       font-weight: bold; //字体加粗
       line-height: 55px;
-      height: 55px;
-      font-size: 20px;
       justify-content: center;
-      align-items: center;
+      height: 55px;
+      width: 30vw;
+      font-size: 20px;
       position: relative;
       flex-wrap: initial;
       &.selected {
@@ -50,15 +65,17 @@ export default {
     }
   }
   .out {
-    border: 2px solid orange;
+    border: 1px solid pink;
+    position: absolute;
+    top: 65px;
+    background: white;
+    z-index: 5;
     > .output {
-      position: relative;
-      flex-grow: 1;
-      border: 1px solid pink;
-      padding: 5px;
+      border: 1px solid blue;
+      margin: 5px;
       width: 90vw;
       margin-left: 5vw;
-      margin-top: 55px;
+      margin-right: 5vw;
       flex-flow: wrap;
       font-size: 40px;
       color: green;

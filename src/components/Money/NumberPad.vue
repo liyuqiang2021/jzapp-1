@@ -7,22 +7,22 @@
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="add">+</button>
+      <button @click="plus">+</button>
       <button @click="remove">删除</button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="delate">-</button>
+      <button @click="minus">-</button>
       <button @click="clear">清空</button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
-      <button @click="inputContent">*</button>
+      <button @click="multiply">*</button>
       <button @click="ok" class="ok">OK</button>
       <button @click="inputContent">.</button>
       <button @click="inputContent">0</button>
-      <button>%</button>
-      <button>/</button>
+      <button @click="percentage">%</button>
+      <button @click="divide">/</button>
     </div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default class NumberPad extends Vue {
     }
     this.output += input;
   }
-  // add() {}
+  // plus() {}
   remove() {
     if (this.output.length === 1) {
       this.output = "0";
@@ -61,11 +61,14 @@ export default class NumberPad extends Vue {
       this.output = this.output.slice(0, -1);
     }
   }
-  // delate() {}
+  // minus() {}
   clear() {
     this.output = "0";
   }
+  // multiply() {}
   // ok() {}
+  // percentage() {}
+  // divide() {}
 }
 </script>
 
@@ -73,13 +76,11 @@ export default class NumberPad extends Vue {
 @import "~@/assets/style/helper.scss";
 .numberPad {
   .out {
-    // border: 1px solid pink;
     position: absolute;
     top: 65px;
     background: white;
     z-index: 5;
     > .output {
-      // border: 1px solid blue;
       overflow: auto;
       margin: 5px;
       width: 90vw;

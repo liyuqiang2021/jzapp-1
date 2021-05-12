@@ -33,7 +33,9 @@ import { Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class NumberPad extends Vue {
-  output = "";
+  @Prop() readonly value!: number;
+  output = this.value.toString();
+
   inputContent(event: MouseEvent) {
     const button = event.target as HTMLButtonElement;
     const input = button.textContent!;
@@ -53,7 +55,9 @@ export default class NumberPad extends Vue {
     }
     this.output += input;
   }
+
   // plus() {}
+
   remove() {
     if (this.output.length === 1) {
       this.output = "0";
@@ -61,13 +65,21 @@ export default class NumberPad extends Vue {
       this.output = this.output.slice(0, -1);
     }
   }
+
   // minus() {}
+
   clear() {
     this.output = "0";
   }
+
   // multiply() {}
-  // ok() {}
+
+  ok() {
+    this.$emit("update:value", this.output);
+  }
+
   // percentage() {}
+
   // divide() {}
 }
 </script>

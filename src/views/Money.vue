@@ -8,7 +8,7 @@
 
     <types :value.sync="record.type" />
 
-    {{ record }}
+    {{ recordList }}
   </Layout>
 </template>
 
@@ -20,11 +20,16 @@ import Types from "@/components/Money/Types.vue";
 import Notes from "@/components/Money/Notes.vue";
 import { Component, Watch } from "vue-property-decorator";
 
+const recordList: Record[] = JSON.parse(
+  window.localStorage.getItem("recordList") || "[]"
+);
+
 type Record = {
   tags: string[] | undefined;
   notes: string;
   type: string;
-  amount: number;
+  amount: number; // 数据类型 obj | str
+  createdAt?: Date; // 类 / 构造函数
 };
 
 @Component({
@@ -32,7 +37,7 @@ type Record = {
 })
 export default class Money extends Vue {
   tags = ["衣", "食", "住", "行"];
-  recordList: Record[] = [];
+  recordList: Record[] = recordList;
   record: Record = {
     tags: [],
     notes: "",
@@ -53,8 +58,8 @@ export default class Money extends Vue {
   }
   saveRecord() {
     const record2 = JSON.parse(JSON.stringify(this.record));
+    record2.createdAt = new Date();
     this.recordList.push(record2);
-    console.log(this.recordList);
   }
   @Watch("recordList")
   onRecordListChange() {

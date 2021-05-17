@@ -1,5 +1,8 @@
 <template>
   <div class="tags">
+    <div class="new">
+      <button @click="create">新增标签</button>
+    </div>
     <ul class="current">
       <li
         v-for="tag in dataSource"
@@ -10,9 +13,6 @@
         {{ tag }}
       </li>
     </ul>
-    <div class="new">
-      <button @click="create">新增标签</button>
-    </div>
   </div>
 </template>
 
@@ -50,10 +50,15 @@ export default class Tags extends Vue {
 
 <style lang="scss" scoped>
 .tags {
-  overflow: auto;
-  // border: 2px solid blue;
+  // overflow: auto;
+  // font-size: 14px;
+  // background: white;
+  background: white;
   font-size: 14px;
-  background: #f5f5f5;
+  padding: 8px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
   > .current {
     display: flex;
     padding: 20px;

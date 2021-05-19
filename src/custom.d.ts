@@ -12,15 +12,19 @@ type Tag = {
 };
 
 type TagListModel = {
-    data: Tag[]
-    fetch: () => Tag[]
-    create: (name: string) => 'success' | 'duplicated' // 联合类型
-    update: (id: string, name: string) => 'success' | 'not found' | 'duplicated'
-    remove: (id: string) => boolean
-    save: () => void
+    data: Tag[];
+    fetch: () => Tag[];
+    create: (name: string) => 'success' | 'duplicated'; // 联合类型
+    update: (id: string, name: string) => 'success' | 'not found' | 'duplicated';
+    remove: (id: string) => boolean;
+    save: () => void;
 };
 
 interface Window {
-    tagList: Tag[]
-    createTag: (name: string) => void
+    tagList: Tag[];
+    findTag: (id: string) => Tag;
+    createTag: (name: string) => void;
+    removeTag: (id: string) => boolean;
+    updateTag: TagListModel['update'];
+    //当参数完全一样时可以提取相同类型以简化
 }

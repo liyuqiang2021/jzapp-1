@@ -15,10 +15,19 @@ Vue.component('Layout', Layout);
 Vue.component('Icon', Icon);
 
 window.tagList = tagListModel.fetch();
-
+window.createTag = (name: string) => {
+  const message = tagListModel.create(name);
+  if (message === "duplicated") {
+    window.alert("标签重复");
+  } else if (message === "success") {
+    window.alert("添加成功");
+  }
+}
+//声明全局
 declare global {
   interface Window {
     tagList: Tag[]
+    createTag: (name: string) => void
   }
 }
 

@@ -27,4 +27,6 @@ interface Window {
     removeTag: (id: string) => boolean;
     updateTag: TagListModel['update'];
     //当参数完全一样时可以提取相同类型以简化
+    recordList: RecordItem[];
+    createRecord: (record: RecordItem) => void;
 }

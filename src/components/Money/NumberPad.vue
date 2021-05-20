@@ -56,7 +56,7 @@ export default class NumberPad extends Vue {
     this.output += input;
   }
 
-  // plus() {}
+  plus() {}
 
   remove() {
     if (this.output.length === 1) {
@@ -66,13 +66,13 @@ export default class NumberPad extends Vue {
     }
   }
 
-  // minus() {}
+  minus() {}
 
   clear() {
     this.output = "0";
   }
 
-  // multiply() {}
+  multiply() {}
 
   ok() {
     this.$emit("update:value", this.output);
@@ -80,9 +80,9 @@ export default class NumberPad extends Vue {
     this.output = "0";
   }
 
-  // percentage() {}
+  percentage() {}
 
-  // divide() {}
+  divide() {}
 }
 </script>
 

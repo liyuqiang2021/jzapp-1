@@ -21,12 +21,14 @@ type TagListModel = {
 };
 
 interface Window {
-    tagList: Tag[];
-    findTag: (id: string) => Tag;
-    createTag: (name: string) => void;
-    removeTag: (id: string) => boolean;
-    updateTag: TagListModel['update'];
-    //当参数完全一样时可以提取相同类型以简化
-    recordList: RecordItem[];
-    createRecord: (record: RecordItem) => void;
+    // store: {
+    //     tagList: Tag[];
+    //     findTag: (id: string) => Tag;
+    //     createTag: (name: string) => void;
+    //     removeTag: (id: string) => boolean;
+    //     updateTag: TagListModel['update'];
+    //     //当参数完全一样时可以提取相同类型以简化
+    //     recordList: RecordItem[];
+    //     createRecord: (record: RecordItem) => void;
+    // }
 }

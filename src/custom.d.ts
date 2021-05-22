@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 type RecordItem = {
     tags: string[];
     notes: string;
@@ -20,15 +22,15 @@ type TagListModel = {
     save: () => void;
 };
 
-interface Window {
-    // store: {
-    //     tagList: Tag[];
-    //     findTag: (id: string) => Tag;
-    //     createTag: (name: string) => void;
-    //     removeTag: (id: string) => boolean;
-    //     updateTag: TagListModel['update'];
-    //     //当参数完全一样时可以提取相同类型以简化
-    //     recordList: RecordItem[];
-    //     createRecord: (record: RecordItem) => void;
-    // }
-}
+// interface Window {
+//     store: {
+//         tagList: Tag[];
+//         findTag: (id: string) => Tag;
+//         createTag: (name: string) => void;
+//         removeTag: (id: string) => boolean;
+//         updateTag: TagListModel['update'];
+//         //当参数完全一样时可以提取相同类型以简化
+//         recordList: RecordItem[];
+//         createRecord: (record: RecordItem) => void;
+//     }
+// }

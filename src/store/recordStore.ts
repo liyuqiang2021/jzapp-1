@@ -24,3 +24,4 @@ const recordStore = {
 recordStore.fetchRecords();
 
 export default recordStore;
+

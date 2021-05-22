@@ -24,7 +24,7 @@ const tagStore = {
         return 'success';
 
     },
-    remove(id: string) {
+    removeTag(id: string) {
         let index = -1;
         for (let i = 0; i < this.tagList.length; i++) {
             if (this.tagList[i].id === id) {
@@ -61,3 +61,5 @@ const tagStore = {
 tagStore.fetchTags();
 
 export default tagStore;
+
+

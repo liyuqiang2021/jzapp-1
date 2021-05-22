@@ -2,11 +2,11 @@
   <Layout class-prefix="layout">
     <NumberPad :value.sync="record.amount" @submit="saveRecord" />
     <FromItem
-      field-Name="备注"
+      fieldName="备注"
       placeholder="在此输入备注"
       @update:value="onUpdateNotes"
     />
-    <Tags :data-source.sync="tags" @update:value="onUpdateTags" />
+    <Tags />
     <Types :value.sync="record.type" />
   </Layout>
 </template>
@@ -32,7 +32,6 @@ type RecordItem = {
   components: { NumberPad, Tags, Types, FromItem },
 })
 export default class Money extends Vue {
-  tags = store.tagList;
   recordList = store.recordList;
   record: RecordItem = {
     tags: [],
@@ -40,10 +39,6 @@ export default class Money extends Vue {
     type: "-",
     amount: 0,
   };
-
-  onUpdateTags(value: string[]) {
-    this.record.tags = value;
-  }
 
   onUpdateNotes(value: string) {
     this.record.notes = value;

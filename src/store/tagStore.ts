@@ -1,4 +1,5 @@
-import createId from '../lib/creatorId';
+import { Tag } from '@/custom';
+import createId from '../lib/createId';
 
 const localStorageKeyName = 'tagList';
 
@@ -22,7 +23,6 @@ const tagStore = {
         this.saveTags();
         window.alert("添加成功");
         return 'success';
-
     },
     removeTag(id: string) {
         let index = -1;

@@ -53,7 +53,7 @@ const store = new Vuex.Store({
       }
     },
     fetchRecords(state) {
-      state.recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]')
+      state.recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]') as RecordItem[];
     },
     createRecord(state, record) {
       const record2: RecordItem = clone(record);

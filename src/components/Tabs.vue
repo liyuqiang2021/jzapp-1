@@ -43,11 +43,9 @@ export default class Tabs extends Vue {
 .tabs {
   background: white;
   display: flex;
-  //   position: absolute;
   top: 0;
   margin-left: 20vw;
   margin-right: 20vw;
-  justify-content: center;
   z-index: 9;
   > li {
     display: flex;

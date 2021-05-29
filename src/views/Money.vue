@@ -7,7 +7,11 @@
       @update:value="onUpdateNotes"
     />
     <Tags />
-    <Types :value.sync="record.type" />
+    <Tabs
+      class="type"
+      :data-source="recordTypeList"
+      :value.sync="record.type"
+    />
   </Layout>
 </template>
 
@@ -15,18 +19,22 @@
 import Vue from "vue";
 import NumberPad from "@/components/Money/NumberPad.vue";
 import Tags from "@/components/Money/Tags.vue";
-import Types from "@/components/Money/Types.vue";
 import { Component } from "vue-property-decorator";
 import FromItem from "@/components/Money/FromItem.vue";
 import { RecordItem } from "@/custom";
+import Tabs from "@/components/Tabs.vue";
+import recordTypeList from "@/constants/recordTypeList";
 
 @Component({
-  components: { NumberPad, Tags, Types, FromItem },
+  components: { NumberPad, Tags, Tabs, FromItem },
 })
 export default class Money extends Vue {
   get recordList() {
     return this.$store.state.recordList;
   }
+
+  recordTypeList = recordTypeList;
+
   record: RecordItem = {
     tags: [],
     notes: "",

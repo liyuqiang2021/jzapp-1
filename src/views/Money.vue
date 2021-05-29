@@ -7,11 +7,7 @@
       @update:value="onUpdateNotes"
     />
     <Tags />
-    <Tabs
-      class="type"
-      :data-source="recordTypeList"
-      :value.sync="record.type"
-    />
+    <Tabs :data-source="recordTypeList" :value.sync="record.type" />
   </Layout>
 </template>
 

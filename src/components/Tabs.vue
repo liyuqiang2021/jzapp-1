@@ -44,14 +44,12 @@ export default class Tabs extends Vue {
 .tabs {
   background: white;
   display: flex;
-  top: 0;
   margin-left: 20vw;
   margin-right: 20vw;
   z-index: 9;
   &-item {
     display: flex;
     font-weight: bold; //字体加粗
-    line-height: 55px;
     justify-content: center;
     align-items: center;
     height: 55px;

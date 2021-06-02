@@ -40,7 +40,7 @@ export default class Statistics extends Vue {
     return tags.length === 0 ? "标签" : tags.join(",");
   }
 
-  beautify(string: string) {
+  beautify(string: string): string {
     const day = dayjs(string);
     const now = dayjs();
     if (day.isSame(now, "day")) {

@@ -1,5 +1,6 @@
 <template>
   <ul class="tabs" :class="{ [classPrefix + '-tabs']: classPrefix }">
+    <li class="left"></li>
     <li
       v-for="item in dataSource"
       :key="item.value"
@@ -9,6 +10,7 @@
     >
       {{ item.text }}
     </li>
+    <li class="right"></li>
   </ul>
 </template>
 
@@ -42,10 +44,21 @@ export default class Tabs extends Vue {
 
 <style lang="scss" scoped>
 .tabs {
+  > .left {
+    width: 20vw;
+    height: 55px;
+    background: white;
+  }
+  > .right {
+    width: 20vw;
+    height: 55px;
+    background: white;
+  }
+
   background: white;
   display: flex;
-  margin-left: 20vw;
-  margin-right: 20vw;
+  position: fixed;
+  top: 0;
   z-index: 9;
   &-item {
     display: flex;

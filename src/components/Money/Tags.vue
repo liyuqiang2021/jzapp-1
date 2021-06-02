@@ -17,7 +17,6 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import { mixins } from "vue-class-component";
 import TagHelper from "@/mixins/TagHelper";
@@ -47,15 +46,14 @@ export default class Tags extends mixins(TagHelper) {
 
 <style lang="scss" scoped>
 .tags {
-  // overflow: auto;
-  // font-size: 14px;
-  // background: white;
-  background: white;
-  font-size: 14px;
-  padding: 8px;
-  flex-grow: 1;
   display: flex;
   flex-direction: column-reverse;
+  overflow: auto;
+  // position: absolute;
+  background: whitesmoke;
+  font-size: 14px;
+  padding: 8px;
+  // flex-grow: 1; //占比
   > .current {
     display: flex;
     padding: 20px;

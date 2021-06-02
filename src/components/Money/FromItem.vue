@@ -1,7 +1,8 @@
 <template>
   <div>
     <label class="fromItem">
-      <span class="name">{{ this.fieldName }}</span>
+      <Icon class="remarks" name="remarks" />
+      <span class="name"> {{ this.fieldName }}</span>
       <input
         type="text"
         :value="value"
@@ -29,7 +30,6 @@ export default class FromItem extends Vue {
 
 <style lang="scss" scoped>
 .fromItem {
-  display: block;
   display: flex;
   background: white;
   padding-left: 16px;
@@ -45,6 +45,11 @@ export default class FromItem extends Vue {
     background: transparent;
     border: none;
     padding-right: 16px;
+  }
+  .remarks {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
   }
 }
 </style>

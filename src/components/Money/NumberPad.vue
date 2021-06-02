@@ -18,7 +18,9 @@
       <button @click="ok" class="ok">保存</button>
       <button @click="inputContent">.</button>
       <button @click="inputContent">0</button>
-      <button @click="remove">删除</button>
+      <button @click="remove">
+        <Icon class="delete" name="delete" />
+      </button>
     </div>
   </div>
 </template>
@@ -32,7 +34,7 @@ export default class NumberPad extends Vue {
   @Prop(Number) readonly value!: number;
   output = this.value.toString();
 
-  inputContent(event: MouseEvent) {
+  inputContent(event: MouseEvent): void {
     const button = event.target as HTMLButtonElement;
     const input = button.textContent!;
     if (this.output.length === 12) {
@@ -78,13 +80,12 @@ export default class NumberPad extends Vue {
 .numberPad {
   .out {
     position: absolute;
-    top: 65px;
-    background: white;
+    top: 55px;
+    background: rgb(255, 255, 255);
     z-index: 5;
     > .output {
       overflow: auto;
-      margin: 5px;
-      width: 90vw;
+      width: 95vw;
       min-height: 72px;
       margin-left: 5vw;
       flex-flow: wrap;
@@ -92,6 +93,10 @@ export default class NumberPad extends Vue {
       color: green;
       border-bottom: 3px solid green;
     }
+  }
+  .delete {
+    width: 22px;
+    height: 22px;
   }
   .btns {
     > button {
@@ -115,11 +120,10 @@ export default class NumberPad extends Vue {
         height: 7.8vh * 2;
         float: right;
         width: 20vw;
+        color: white;
+        border-radius: 4px;
       }
-      $bg: #f2f2f2;
-      &:nth-child(1) {
-        background: linear-gradient(to bottom right, #ece9e6, #ffffff);
-      }
+      &:nth-child(1),
       &:nth-child(2),
       &:nth-child(3),
       &:nth-child(4),

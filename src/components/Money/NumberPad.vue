@@ -7,22 +7,18 @@
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="plus">+</button>
-      <button @click="remove">删除</button>
+      <button @click="minus" class="minus">-</button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="minus">-</button>
-      <button @click="clear">清空</button>
+      <button @click="plus" class="plus">+</button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
-      <button @click="multiply">*</button>
-      <button @click="ok" class="ok">OK</button>
+      <button @click="ok" class="ok">保存</button>
       <button @click="inputContent">.</button>
       <button @click="inputContent">0</button>
-      <button @click="percentage">%</button>
-      <button @click="divide">/</button>
+      <button @click="remove">删除</button>
     </div>
   </div>
 </template>
@@ -33,7 +29,7 @@ import { Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class NumberPad extends Vue {
-  @Prop() readonly value!: number;
+  @Prop(Number) readonly value!: number;
   output = this.value.toString();
 
   inputContent(event: MouseEvent) {
@@ -68,21 +64,12 @@ export default class NumberPad extends Vue {
 
   minus() {}
 
-  clear() {
-    this.output = "0";
-  }
-
-  multiply() {}
-
   ok() {
-    this.$emit("update:value", this.output);
-    this.$emit("submit", this.output);
+    const number = parseFloat(this.output);
+    this.$emit("update:value", number);
+    this.$emit("submit", number);
     this.output = "0";
   }
-
-  percentage() {}
-
-  divide() {}
 }
 </script>
 
@@ -100,60 +87,55 @@ export default class NumberPad extends Vue {
       width: 90vw;
       min-height: 72px;
       margin-left: 5vw;
-      margin-right: 5vw;
       flex-flow: wrap;
       font-size: 40px;
       color: green;
-      border-bottom: 4px solid green;
+      border-bottom: 3px solid green;
     }
   }
   .btns {
     > button {
       @extend %clearFix;
-      @extend %innerShadow;
-      width: 20%;
+      width: 26.66vw;
       height: 7.8vh;
       float: left;
       background: transparent;
       border: none;
+      &.minus {
+        height: 7.8vh;
+        float: right;
+        width: 20vw;
+      }
+      &.plus {
+        height: 7.8vh;
+        float: right;
+        width: 20vw;
+      }
       &.ok {
         height: 7.8vh * 2;
         float: right;
+        width: 20vw;
       }
       $bg: #f2f2f2;
       &:nth-child(1) {
-        background: $bg;
+        background: linear-gradient(to bottom right, #ece9e6, #ffffff);
       }
       &:nth-child(2),
-      &:nth-child(6) {
-        background: darken($bg, 4%);
-      }
       &:nth-child(3),
-      &:nth-child(7),
-      &:nth-child(11) {
-        background: darken($bg, 4% * 3);
-      }
       &:nth-child(4),
-      &:nth-child(8),
-      &:nth-child(12),
-      &:nth-child(16) {
-        background: darken($bg, 4% * 6);
-      }
       &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
       &:nth-child(9),
-      &:nth-child(13),
-      &:nth-child(17) {
-        background: darken($bg, 4% * 8);
-      }
       &:nth-child(10),
+      &:nth-child(11),
+      &:nth-child(13),
       &:nth-child(14),
-      &:nth-child(18) {
-        background: darken($bg, 4% * 10);
-      }
-      &:nth-child(19) {
-        background: darken($bg, 4% * 12);
-      }
       &:nth-child(15) {
+        background: linear-gradient(to bottom right, #ece9e6, #ffffff);
+      }
+      &:nth-child(12) {
         background: orange;
       }
     }

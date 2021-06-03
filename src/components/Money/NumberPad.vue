@@ -1,17 +1,20 @@
 <template>
   <div class="numberPad">
-    <div class="out">
-      <div class="output">{{ output }}</div>
+    <div class="view">
+      <div class="output">
+        {{ output }}
+        <div class="output-items"></div>
+      </div>
     </div>
     <div class="btns">
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="minus" class="minus">-</button>
+      <button @click="minus" value="-" class="minus">-</button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="plus" class="plus">+</button>
+      <button @click="plus" value="+" class="plus">+</button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
@@ -56,6 +59,8 @@ export default class NumberPad extends Vue {
 
   plus() {}
 
+  minus() {}
+
   remove() {
     if (this.output.length === 1) {
       this.output = "0";
@@ -63,8 +68,6 @@ export default class NumberPad extends Vue {
       this.output = this.output.slice(0, -1);
     }
   }
-
-  minus() {}
 
   ok() {
     const number = parseFloat(this.output);
@@ -78,25 +81,25 @@ export default class NumberPad extends Vue {
 <style lang="scss" scoped>
 @import "~@/assets/style/helper.scss";
 .numberPad {
-  .out {
+  > .view {
     position: absolute;
     top: 55px;
-    background: rgb(255, 255, 255);
-    z-index: 5;
+    background: white;
+    z-index: 1;
     > .output {
+      margin-top: 10px;
       overflow: auto;
       width: 95vw;
-      min-height: 72px;
       margin-left: 5vw;
       flex-flow: wrap;
       font-size: 40px;
       color: green;
       border-bottom: 3px solid green;
+      .output-items {
+        font-size: 8px;
+        color: yellowgreen;
+      }
     }
-  }
-  .delete {
-    width: 22px;
-    height: 22px;
   }
   .btns {
     > button {
@@ -106,6 +109,10 @@ export default class NumberPad extends Vue {
       float: left;
       background: transparent;
       border: none;
+      > .delete {
+        width: 22px;
+        height: 22px;
+      }
       &.minus {
         height: 7.8vh;
         float: right;

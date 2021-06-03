@@ -49,7 +49,6 @@ export default class Tags extends mixins(TagHelper) {
   display: flex;
   flex-direction: column-reverse;
   overflow: auto;
-  // position: absolute;
   background: whitesmoke;
   font-size: 14px;
   padding: 8px;

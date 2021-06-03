@@ -5,7 +5,7 @@
       :data-source="recordTypeList"
       :value.sync="type"
     />
-    <ol>
+    <ol class="ols">
       <li v-for="(group, index) in groupedList" :key="index">
         <h3 class="title">
           {{ beautify(group.title) }}
@@ -123,18 +123,23 @@ export default class Statistics extends Vue {
   justify-content: space-between;
   align-items: center;
 }
-.title {
-  @extend %item;
-}
-.record {
-  background: whitesmoke;
-  @extend %item;
-}
-.notes {
-  margin-left: 8px;
-  margin-right: auto;
-  align-items: center;
-  color: #999;
-  font-size: 14px;
+.ols {
+  position: relative;
+  top: 55px;
+  overflow: auto;
+  .title {
+    @extend %item;
+  }
+  .record {
+    background: whitesmoke;
+    @extend %item;
+  }
+  .notes {
+    margin-left: 8px;
+    margin-right: auto;
+    align-items: center;
+    color: #999;
+    font-size: 14px;
+  }
 }
 </style>

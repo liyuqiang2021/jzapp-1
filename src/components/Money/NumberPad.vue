@@ -1,20 +1,16 @@
 <template>
   <div class="numberPad">
     <div class="view">
-      <div class="output">
-        {{ output }}
-        <div class="output-items"></div>
-      </div>
+      <div class="output">{{ output }}</div>
     </div>
     <div class="btns">
       <button @click="inputContent">1</button>
       <button @click="inputContent">2</button>
       <button @click="inputContent">3</button>
-      <button @click="minus" value="-" class="minus">-</button>
+      <button @click="clear" class="clear">清空</button>
       <button @click="inputContent">4</button>
       <button @click="inputContent">5</button>
       <button @click="inputContent">6</button>
-      <button @click="plus" value="+" class="plus">+</button>
       <button @click="inputContent">7</button>
       <button @click="inputContent">8</button>
       <button @click="inputContent">9</button>
@@ -57,10 +53,9 @@ export default class NumberPad extends Vue {
     this.output += input;
   }
 
-  plus() {}
-
-  minus() {}
-
+  clear() {
+    this.output = "0";
+  }
   remove() {
     if (this.output.length === 1) {
       this.output = "0";
@@ -113,13 +108,8 @@ export default class NumberPad extends Vue {
         width: 22px;
         height: 22px;
       }
-      &.minus {
-        height: 7.8vh;
-        float: right;
-        width: 20vw;
-      }
-      &.plus {
-        height: 7.8vh;
+      &.clear {
+        height: 7.8vh * 2;
         float: right;
         width: 20vw;
       }
@@ -140,13 +130,12 @@ export default class NumberPad extends Vue {
       &:nth-child(8),
       &:nth-child(9),
       &:nth-child(10),
-      &:nth-child(11),
+      &:nth-child(12),
       &:nth-child(13),
-      &:nth-child(14),
-      &:nth-child(15) {
+      &:nth-child(14) {
         background: linear-gradient(to bottom right, #ece9e6, #ffffff);
       }
-      &:nth-child(12) {
+      &:nth-child(11) {
         background: orange;
       }
     }

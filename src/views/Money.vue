@@ -4,9 +4,9 @@
     <FromItem
       fieldName="备注"
       placeholder="在此输入备注"
-      @update:value="onUpdateNotes"
+      :value.sync="record.notes"
     />
-    <Tags />
+    <Tags @update:value="record.tags = $event" />
     <Tabs :data-source="recordTypeList" :value.sync="record.type" />
   </Layout>
 </template>
@@ -37,16 +37,23 @@ export default class Money extends Vue {
     type: "-",
     amount: 0,
   };
-  created() {
+  created(): void {
     this.$store.commit("fetchRecords");
   }
 
-  onUpdateNotes(value: string) {
+  onUpdateNotes(value: string): void {
     this.record.notes = value;
   }
 
-  saveRecord() {
+  saveRecord(): void {
+    if (!this.record.tags || this.record.tags.length === 0) {
+      return window.alert("请至少选择一个标签");
+    }
     this.$store.commit("createRecord", this.record);
+    if (this.$store.state.createRecordError === null) {
+      window.alert("已保存");
+      this.record.notes = "";
+    }
   }
 }
 </script>

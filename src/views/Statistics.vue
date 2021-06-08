@@ -5,7 +5,7 @@
       :data-source="recordTypeList"
       :value.sync="type"
     />
-    <ol class="ols">
+    <ol class="ols" v-if="groupedList.length > 0">
       <li v-for="(group, index) in groupedList" :key="index">
         <h3 class="title">
           {{ beautify(group.title) }}
@@ -20,6 +20,7 @@
         </ol>
       </li>
     </ol>
+    <div v-else class="noResult">暂无记录</div>
   </Layout>
 </template>
 
@@ -36,8 +37,8 @@ import clone from "@/lib/clone";
   components: { Tabs },
 })
 export default class Statistics extends Vue {
-  tagString(tags: Tag[]) {
-    return tags.length === 0 ? "标签" : tags.join(",");
+  tagString(tags: Tag[]): string {
+    return tags.length === 0 ? "未选标签" : tags.map((t) => t.name).join(",");
   }
 
   beautify(string: string): string {
@@ -68,6 +69,9 @@ export default class Statistics extends Vue {
       .sort(
         (a, b) => dayjs(b.createdAt).valueOf() - dayjs(a.createdAt).valueOf()
       );
+    if (newList.length === 0) {
+      return [];
+    }
     type Result = { title: string; total?: number; items: RecordItem[] }[];
     const result: Result = [
       {
@@ -95,7 +99,7 @@ export default class Statistics extends Vue {
     return result;
   }
 
-  beforeCreate() {
+  beforeCreate(): void {
     this.$store.commit("fetchRecords");
   }
 
@@ -105,6 +109,11 @@ export default class Statistics extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.noResult {
+  top: 55px;
+  padding: 16px;
+  text-align: center;
+}
 ::v-deep {
   .type-tabs-item {
     background: white;
@@ -126,6 +135,7 @@ export default class Statistics extends Vue {
 .ols {
   position: relative;
   top: 55px;
+  height: 84vh;
   overflow: auto;
   .title {
     @extend %item;

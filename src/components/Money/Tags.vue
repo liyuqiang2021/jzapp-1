@@ -1,7 +1,7 @@
 <template>
   <div class="tags">
     <div class="new">
-      <button @click="createTag">新增标签</button>
+      <button @click="createTag"><Icon name="other" />新增标签</button>
     </div>
     <ul class="current">
       <li
@@ -28,11 +28,11 @@ export default class Tags extends mixins(TagHelper) {
   get tagList() {
     return this.$store.state.tagList;
   }
-  created() {
+  created(): void {
     this.$store.commit("fetchTags");
   }
 
-  toggle(tag: string) {
+  toggle(tag: string): void {
     const index = this.selectedTags.indexOf(tag);
     if (index >= 0) {
       this.selectedTags.splice(index, 1);
@@ -65,9 +65,9 @@ export default class Tags extends mixins(TagHelper) {
       line-height: $h;
       border-radius: $h/2;
       padding: 0 12px;
-      margin-right: 24px;
+      margin-right: 18px;
       &.selected {
-        background: darken($bg, 50%);
+        background: green;
         color: white;
       }
     }

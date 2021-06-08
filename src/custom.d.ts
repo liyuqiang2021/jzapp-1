@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 type RootState = {
     recordList: RecordItem[],
+    createRecordError: Error | null;
     tagList: Tag[],
     currentTag?: Tag,
 }

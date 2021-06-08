@@ -14,22 +14,28 @@ Vue.component('Layout', Layout);
 Vue.component('Icon', Icon);
 
 //全局声明
-declare global {
-  interface Window {
-    //   store: {
-    //     tagList: Tag[];
-    //     findTag: (id: string) => Tag;
-    //     createTag: (name: string) => void;
-    //     removeTag: (id: string) => boolean;
-    //     updateTag: TagListModel['update'];
-    //     recordList: RecordItem[];
-    //     createRecord: (record: RecordItem) => void;
-    //   }
-  }
-}
+// declare global {
+//   interface Window {
+//       store: {
+//         tagList: Tag[];
+//         findTag: (id: string) => Tag;
+//         createTag: (name: string) => void;
+//         removeTag: (id: string) => boolean;
+//         updateTag: TagListModel['update'];
+//         recordList: RecordItem[];
+//         createRecord: (record: RecordItem) => void;
+//       }
+//   }
+// }
 
 new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app');
+
+window.onload = function () {
+  setTimeout(function () {
+    window.scrollTo(0, 999);
+  }, 0);
+};

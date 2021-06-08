@@ -13,6 +13,10 @@
         placeholder="请输入标签名"
       />
     </div>
+    <div class="logo">
+      <div>修改图标</div>
+      <div><Icon name="other" />{{ 1 }}</div>
+    </div>
     <div class="button-wrapper">
       <Button @click="remove">删除标签</Button>
     </div>
@@ -32,7 +36,7 @@ export default class EditLabel extends Vue {
   get currentTag() {
     return this.$store.state.currentTag;
   }
-  created() {
+  created(): void {
     const id = this.$route.params.id;
     this.$store.commit("fetchTags");
     this.$store.commit("setCurrentTag", id);
@@ -40,17 +44,17 @@ export default class EditLabel extends Vue {
       this.$router.replace("/404");
     }
   }
-  update(name: string) {
+  update(name: string): void {
     if (this.currentTag) {
       this.$store.commit("updateTag", { id: this.currentTag.id, name });
     }
   }
-  remove() {
+  remove(): void {
     if (this.currentTag) {
       this.$store.commit("removeTag", this.currentTag.id);
     }
   }
-  goBack() {
+  goBack(): void {
     this.$router.back();
   }
 }

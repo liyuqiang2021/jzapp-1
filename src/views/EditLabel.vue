@@ -13,10 +13,7 @@
         placeholder="请输入标签名"
       />
     </div>
-    <div class="logo">
-      <div>修改图标</div>
-      <div><Icon name="other" />{{ 1 }}</div>
-    </div>
+
     <div class="button-wrapper">
       <Button @click="remove">删除标签</Button>
     </div>

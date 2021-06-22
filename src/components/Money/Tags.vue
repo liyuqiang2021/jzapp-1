@@ -49,7 +49,7 @@ export default class Tags extends mixins(TagHelper) {
   display: flex;
   flex-direction: column-reverse;
   overflow: auto;
-  background: whitesmoke;
+  background: white;
   font-size: 14px;
   padding: 8px;
   // flex-grow: 1; //占比
@@ -67,7 +67,7 @@ export default class Tags extends mixins(TagHelper) {
       padding: 0 12px;
       margin-right: 18px;
       &.selected {
-        background: green;
+        background: rgb(73, 211, 142);
         color: white;
       }
     }

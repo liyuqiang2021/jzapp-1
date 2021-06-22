@@ -114,17 +114,17 @@ export default class Statistics extends Vue {
   padding: 16px;
   text-align: center;
 }
-::v-deep {
-  .type-tabs-item {
-    background: white;
-    &.selected {
-      background: yellowgreen;
-      &::after {
-        display: none;
-      }
-    }
-  }
-}
+// ::v-deep {
+//   .type-tabs-item {
+//     background: white;
+//     &.selected {
+//       background: yellowgreen;
+//       &::after {
+//         display: none;
+//       }
+//     }
+//   }
+// }
 %item {
   padding: 0 16px;
   min-height: 40px;

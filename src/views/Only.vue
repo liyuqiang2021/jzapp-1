@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <layout>
-      <p>主页</p>
-    </layout>
-  </div>
+  <Layout> 展示 </Layout>
 </template>
 
 <script lang="ts">
-export default {
-  name: "Only",
-};
+import Vue from "vue";
+export default class Statistics extends Vue {}
 </script>

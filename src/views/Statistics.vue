@@ -20,7 +20,7 @@
         </ol>
       </li>
     </ol>
-    <div v-else class="noResult">暂无记录</div>
+    <div v-else class="noResult">暂无相关记录</div>
   </Layout>
 </template>
 
@@ -110,6 +110,7 @@ export default class Statistics extends Vue {
 
 <style lang="scss" scoped>
 .noResult {
+  position: relative;
   top: 55px;
   padding: 16px;
   text-align: center;

@@ -1,8 +1,8 @@
 <template>
   <Layout>
     <div class="view">
-      <!-- <p class="halo">欢 迎 使 用 极 简 记</p> -->
-      <img src="/jz.png" class="halo" />
+      <p class="halo">欢 迎 使 用 极 简 记</p>
+      <!-- <img src="/jz.png" class="halo" /> -->
       <div class="mon">
         <Icon name="money" class="money" />
       </div>
@@ -28,7 +28,8 @@ export default class Statistics extends Vue {}
   position: relative;
   top: -30px;
   width: 300px;
-  // box-shadow: 0 0 6px 0 rgba($color: #fc655a, $alpha: 1);
+  font-size: 30px;
+  margin: 0 auto;
 }
 .mon {
   width: 100vw;

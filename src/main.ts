@@ -43,11 +43,11 @@ window.onload = function () {
 if (document.documentElement.clientWidth > 500) {
   window.alert('建议使用手机打开本页面，以保证浏览效果');
   const img = document.createElement('img');
-  img.src = '/qrcode.png';
+  img.src = '../jzapp-1-website/qrcode.png';
   img.style.position = 'fixed';
   img.style.left = '50%';
   img.style.top = '50%,';
-  img.style.transform = 'translate(-50%,-200%)';
+  img.style.transform = 'translate(-50%,-240%)';
   img.style.boxShadow = '0 0 10px rgba(0,0,0,0.25)'
   document.body.appendChild(img);
 }
